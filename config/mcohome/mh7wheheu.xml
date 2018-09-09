@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Product xmlns='http://code.google.com/p/open-zwave/'>
+	<!-- Configuration Parameters -->
+	<CommandClass id="112">
+		<Value type="list" genre="config" index="1" label="Upload temperature format automatically" size="1" value="2" units="">
+			<Help>Default is to follow main display</Help>
+			<Item label="Celsius" value="0" />
+			<Item label="Fahrenheit" value="1" />
+			<Item label="Follow the main display" value="2" />
+		</value>
+		<Value type="list" genre="config" index="2" label="Upload temperature value automatically" size="1" value="3" units="">
+			<Help>Default is to Upload the difference+timing upload mode</Help>
+			<Item label="OFF" value="0" />
+			<Item label="Upload the difference value only" value="1" />
+			<Item label="Timing upload mode only" value="2" />
+			<Item label="Upload the difference+timing upload mode" value="3" />
+		</value>
+		<Value type="byte" genre="config" index="3" label="Upload temperature difference" size="2" value="5" min="3" max="1000" units="">
+			<Help>Base on 0.1 C unit, 0.5 by default, 5*0.1C=0.5C, 3-1000</Help>
+		</value>
+		<Value type="byte" genre="config" index="4" label="Upload time interval regularly" size="2" value="30" min="10" max="4095" units="seconds">
+			<Help>How often automatically report sensor values. Base on 1s unit, it suggest to be set above 30s</Help>
+		</value>
+	</CommandClass>
+	<!-- Association Groups -->
+	<CommandClass id="133">
+		<Associations num_groups="1">
+			<Group index="1" max_associations="1" label="Lifeline"/>
+		</Associations>
+	</CommandClass>
+</Product>
